@@ -11,9 +11,7 @@ public class Employees {
 	@Id
 	private Long employeeId;
 	
-	private String employeeFirstName;
-	
-	private String employeeLastName;
+	private String employeeName;
 	
 	private String employeeEmail;
 	
