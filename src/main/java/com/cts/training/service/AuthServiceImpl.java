@@ -42,7 +42,7 @@ public class AuthServiceImpl implements AuthService {
 		
 		if(loginStatus)
 		{
-			String token = jwtUtils.generateToken(employees);
+			String token = jwtUtils.generateToken(dbPerson);
 	
 			
 			LoginDTO loginDTO=new LoginDTO(dbPerson.getEmployeeId(), dbPerson.getEmployeeName(), token,dbPerson.getEmployeeGrade());
