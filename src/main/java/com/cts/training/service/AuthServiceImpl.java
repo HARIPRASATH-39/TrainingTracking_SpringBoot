@@ -27,12 +27,6 @@ public class AuthServiceImpl implements AuthService {
 	
 	@Override
 	public ResponseEntity<?> login(Employees employees) {
-		 
-//		if(authRepository.findByEmployeeEmailAndEmployeePassword(employees.getEmployeeEmail(),employees.getEmployeePassword())!=null)
-//		{
-//			return new ResponseEntity<String>("LOGIN SUCCESSFUL",HttpStatus.OK);
-//		}
-//		return new ResponseEntity<String>("NO ACCOUNT FOUND",HttpStatus.UNAUTHORIZED);
 		
 		Employees dbPerson = authRepository.findByEmployeeEmail(employees.getEmployeeEmail());
 
@@ -66,6 +60,12 @@ public class AuthServiceImpl implements AuthService {
 		if(authRepository.findByEmployeeEmail(employees.getEmployeeEmail())!=null)
 		{
 			return new ResponseEntity<String>("ALREADY REGISTERED EMAIL",HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		else if(authRepository.findByEmployeeId(employees.getEmployeeId())!=null)
+		{
+			return new ResponseEntity<String>("INVALID EMPLOYEE ID",HttpStatus.NOT_ACCEPTABLE);
+			
 		}
 		
 		employees.setEmployeePassword(passwordEncode.encode(employees.getEmployeePassword()));

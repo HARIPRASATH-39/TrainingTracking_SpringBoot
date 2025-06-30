@@ -10,5 +10,7 @@ public interface AuthRepository extends JpaRepository<Employees, Long> {
 
 	Employees findByEmployeeEmailAndEmployeePassword(String EmployeeEmail, String EmployeePassword);
 
+	Object findByEmployeeId(Long employeeId);
+
 	
 }
