@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.training.dto.TrainingDTO;
+import com.cts.training.dto.TrainingStatusDTO;
 import com.cts.training.entity.Trainings;
 import com.cts.training.service.TrainingsService;
 
@@ -46,6 +47,8 @@ public class TrainingsController {
 	    }
 
 	    @PutMapping("/update/{id}")
+		@PreAuthorize("hasAuthority('Associate')")
+
 	    public ResponseEntity<?> updateTraining(@PathVariable int id, @RequestBody Trainings training) {
 	        return trainingService.updateTraining(id, training);
 	    }
@@ -53,5 +56,12 @@ public class TrainingsController {
 	    @DeleteMapping("/delete/{id}")
 	    public ResponseEntity<?> deleteTraining(@PathVariable int id) {
 	        return trainingService.deleteTraining(id);
+	    }
+	    
+	    @PutMapping("/trainingstatus/{id}")
+	    
+	    public String trainingStatus(@PathVariable int id, @RequestBody TrainingStatusDTO trainingStatusDTO) {
+	    	
+	    	return trainingService.trainingStatus(id,trainingStatusDTO);
 	    }
 	}

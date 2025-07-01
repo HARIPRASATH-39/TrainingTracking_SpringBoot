@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.cts.training.dto.TrainingDTO;
+import com.cts.training.dto.TrainingStatusDTO;
 import com.cts.training.entity.Courses;
 import com.cts.training.entity.Employees;
 import com.cts.training.entity.Trainings;
@@ -99,6 +100,21 @@ public class TrainingsServiceImpl implements TrainingsService {
     	return trainings;
     	
     }
+
+	@Override
+	public String trainingStatus(int id, TrainingStatusDTO trainingStatusDTO) {
+		
+		   Trainings dbTraining = trainingRepository.findById(id).orElse(null);
+		   
+		   dbTraining.setFeedback(trainingStatusDTO.getFeedback());
+		   dbTraining.setStatus(trainingStatusDTO.getStatus());
+		   if(trainingStatusDTO.getStatus()=="Completed")
+		   {
+			   dbTraining.setCompletedDate(LocalDateTime.now());
+		   }
+		
+		return "Status Changed";
+	}
     
     
     

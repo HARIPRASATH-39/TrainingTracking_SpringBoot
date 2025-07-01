@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.cts.training.dto.TrainingDTO;
+import com.cts.training.dto.TrainingStatusDTO;
 import com.cts.training.entity.Trainings;
 
 public interface TrainingsService {
@@ -18,5 +19,7 @@ public interface TrainingsService {
 	ResponseEntity<?> updateTraining(int id, Trainings training);
 
 	ResponseEntity<?> deleteTraining(int id);
+
+	String trainingStatus(int id, TrainingStatusDTO trainingStatusDTO);
 
 }

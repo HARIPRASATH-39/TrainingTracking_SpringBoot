@@ -47,8 +47,7 @@ public class AuthServiceImpl implements AuthService {
 		else { 
 			
 		
-			throw new RuntimeException("Invalid Credentials");
-		
+			return new ResponseEntity<String>("Invalid Credentials",HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		
