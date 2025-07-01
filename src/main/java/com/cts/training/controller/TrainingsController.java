@@ -59,7 +59,8 @@ public class TrainingsController {
 	    }
 	    
 	    @PutMapping("/trainingstatus/{id}")
-	    
+		@PreAuthorize("hasAuthority('PAT')")
+
 	    public String trainingStatus(@PathVariable int id, @RequestBody TrainingStatusDTO trainingStatusDTO) {
 	    	
 	    	return trainingService.trainingStatus(id,trainingStatusDTO);

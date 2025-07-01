@@ -108,10 +108,13 @@ public class TrainingsServiceImpl implements TrainingsService {
 		   
 		   dbTraining.setFeedback(trainingStatusDTO.getFeedback());
 		   dbTraining.setStatus(trainingStatusDTO.getStatus());
-		   if(trainingStatusDTO.getStatus()=="Completed")
-		   {
-			   dbTraining.setCompletedDate(LocalDateTime.now());
-		   }
+		   if ("Completed".equalsIgnoreCase(trainingStatusDTO.getStatus())) {
+			    dbTraining.setCompletedDate(LocalDateTime.now());
+			}
+
+
+		   
+		   trainingRepository.save(dbTraining);
 		
 		return "Status Changed";
 	}
