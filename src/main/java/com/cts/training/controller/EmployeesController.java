@@ -32,11 +32,11 @@ public class EmployeesController {
 	        return employeeService.getAllEmployee();
 	    }
 	    
-	    @GetMapping("/getById")
+	    @GetMapping("/getById/{id}")
 		@PreAuthorize("hasAuthority('Associate')")
-	    public Employees getEmployeeById(@RequestBody Employees employee) {
+	    public Employees getEmployeeById(@PathVariable Long id) {
 	    	
-	    	return employeeService.getEmployeeById(employee.getEmployeeId());
+	    	return employeeService.getEmployeeById(id);
 	    	
 	    }
 	    
