@@ -40,7 +40,7 @@ public class SecurityConfig
  
     	http.csrf(csrf-> csrf.disable())
                 .authorizeHttpRequests((authorize)->{
-                    authorize.requestMatchers("Auth/login","Auth/register","Employees/update/**","Courses/find/**").permitAll();
+                    authorize.requestMatchers("Auth/login","Auth/register","/swagger-ui/**", "/v3/api-docs/**","Employees/update/**","Courses/find/**").permitAll();
                     authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
                     authorize.anyRequest().authenticated();
                     

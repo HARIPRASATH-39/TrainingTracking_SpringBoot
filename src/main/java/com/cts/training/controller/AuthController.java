@@ -15,7 +15,7 @@ import com.cts.training.service.AuthService;
 
 @RestController
 @RequestMapping("Auth")
-@CrossOrigin(origins = "http://localhost:5173") // Allow requests from this origin
+@CrossOrigin(origins = "http://localhost:5173")
 
 public class AuthController {
 
