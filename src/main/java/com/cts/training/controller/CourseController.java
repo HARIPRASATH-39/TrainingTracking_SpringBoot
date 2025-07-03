@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cts.training.dto.CourseDTO;
 import com.cts.training.entity.Courses;
 import com.cts.training.service.CourseService;
 
@@ -35,7 +36,7 @@ public class CourseController {
     }
 
     @GetMapping("/find/getById/{id}")
-    public Courses getCourseById(@PathVariable int id) {
+    public Courses getCourseById(@PathVariable String id) {
         return courseService.getCourseById(id);
     }
 
@@ -49,16 +50,23 @@ public class CourseController {
     @PutMapping("/update/{id}")		
     @PreAuthorize("hasAuthority('Associate')")
 
-    public ResponseEntity<?> updateCourse(@PathVariable int id, @RequestBody Courses course) {
-        return courseService.updateCourse(id, course);
+    public ResponseEntity<?> updateCourse(@PathVariable String id, @RequestBody CourseDTO courseDTO) {
+        return courseService.updateCourse(id, courseDTO);
     }
 
     @DeleteMapping("/delete/{id}")
 	@PreAuthorize("hasAuthority('Associate')")
 
-    public ResponseEntity<?> deleteCourse(@PathVariable int id) {
+    public ResponseEntity<?> deleteCourse(@PathVariable String id) {
         return courseService.deleteCourse(id);
     }
 	
-	
+	// TODO Add Course Link
+    // TODO Change course Id
+    // TODO ADD due Date in Course
+    // TODO Add OAuth Server
+    // TODO Add Due date in Training
+    // TODO Course Created Date
+    // TODO Create a separate for table
+    
 }

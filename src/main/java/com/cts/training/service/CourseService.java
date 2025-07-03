@@ -4,18 +4,19 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
+import com.cts.training.dto.CourseDTO;
 import com.cts.training.entity.Courses;
 
 public interface CourseService {
 
 	List<Courses> getAllCourses();
 
-	Courses getCourseById(int id);
+	Courses getCourseById(String id);
 
 	ResponseEntity<?> addCourse(Courses course);
 
-	ResponseEntity<?> updateCourse(int id, Courses course);
+	ResponseEntity<?> updateCourse(String id, CourseDTO courseDTO);
 
-	ResponseEntity<?> deleteCourse(int id);
+	ResponseEntity<?> deleteCourse(String id);
 
 }

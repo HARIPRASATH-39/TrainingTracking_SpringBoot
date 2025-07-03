@@ -1,5 +1,7 @@
 package com.cts.training.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,13 +13,18 @@ import lombok.Data;
 public class Courses {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int courseId;
+	private String courseId;
+	
+	private String courseDescription;
 	
 	private String courseName;
 	
 	private String courseLevel;
 	
 	private String courseDuration;
+	
+	private String courseLink;
+	
+	private LocalDateTime courseCreatedDate;
 
 }

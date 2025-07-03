@@ -42,5 +42,7 @@ public class Trainings {
 	    
 	    private LocalDateTime assignedDate;
 	    
+	    private String dueDate;
+	    
 	    private LocalDateTime completedDate;
 }

@@ -1,6 +1,7 @@
 package com.cts.training.service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +88,8 @@ public class TrainingsServiceImpl implements TrainingsService {
     	
     	Courses course=courseRepository.findById(trainingDTO.getCourse()).get();
     	
+    	
+    	
     	Trainings trainings=Trainings.builder()
     			.assignedBy(assignedBy)
     			.assignedTo(assignedTo)
@@ -95,6 +98,7 @@ public class TrainingsServiceImpl implements TrainingsService {
     			.feedback(null)
     			.assignedDate(LocalDateTime.now())
     			.completedDate(null)
+    			.dueDate(trainingDTO.getDueDate())
     			.build();
     	
     	return trainings;

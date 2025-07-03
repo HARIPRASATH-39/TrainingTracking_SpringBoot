@@ -17,7 +17,7 @@ public class TrainingDTO {
 	
 	    private Long assignedTo;
 	    
-	    private int course;
+	    private String course;
 	    
 	    private  Long assignedBy; 
 	    
@@ -28,5 +28,7 @@ public class TrainingDTO {
 	    private LocalDateTime assignedDate;
 	    
 	    private LocalDateTime completedDate;
+	    
+	    private String dueDate;
 
 }
