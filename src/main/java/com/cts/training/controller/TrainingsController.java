@@ -22,7 +22,7 @@ import com.cts.training.service.TrainingsService;
 
 @RestController
 @RequestMapping("/Trainings")
-@CrossOrigin(origins = "http://localhost:3000") 
+@CrossOrigin(origins = "http://localhost:5173") 
 
 public class TrainingsController {
 	

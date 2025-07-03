@@ -18,7 +18,7 @@ import com.cts.training.service.EmployeeService;
 
 @RestController
 @RequestMapping("Employees")
-@CrossOrigin(origins = "http://localhost:3000") 
+@CrossOrigin(origins = "http://localhost:5173") 
 
 public class EmployeesController {
 	
