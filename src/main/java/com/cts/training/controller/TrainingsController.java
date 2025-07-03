@@ -54,6 +54,8 @@ public class TrainingsController {
 	    }
 
 	    @DeleteMapping("/delete/{id}")
+		@PreAuthorize("hasAuthority('Associate')")
+
 	    public ResponseEntity<?> deleteTraining(@PathVariable int id) {
 	        return trainingService.deleteTraining(id);
 	    }
