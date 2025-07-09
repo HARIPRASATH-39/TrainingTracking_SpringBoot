@@ -41,27 +41,27 @@ public class TrainingsController {
 	    }
 
 	    @PostMapping("/add")
-		@PreAuthorize("hasAuthority('Associate')")
+		@PreAuthorize("hasRole('Associate')")
 	    public ResponseEntity<?> addTraining(@RequestBody TrainingDTO training) {
 	        return trainingService.addTraining(training);
 	    }
 
 	    @PutMapping("/update/{id}")
-		@PreAuthorize("hasAuthority('Associate')")
+		@PreAuthorize("hasRole('Associate')")
 
 	    public ResponseEntity<?> updateTraining(@PathVariable int id, @RequestBody Trainings training) {
 	        return trainingService.updateTraining(id, training);
 	    }
 
 	    @DeleteMapping("/delete/{id}")
-		@PreAuthorize("hasAuthority('Associate')")
+		@PreAuthorize("hasRole('Associate')")
 
 	    public ResponseEntity<?> deleteTraining(@PathVariable int id) {
 	        return trainingService.deleteTraining(id);
 	    }
 	    
 	    @PutMapping("/trainingstatus/{id}")
-		@PreAuthorize("hasAuthority('PAT')")
+		@PreAuthorize("hasRole('PAT')")
 
 	    public String trainingStatus(@PathVariable int id, @RequestBody TrainingStatusDTO trainingStatusDTO) {
 	    	

@@ -6,7 +6,7 @@ import com.cts.training.entity.Employees;
 
 
 public interface AuthService {
-	ResponseEntity<?> login(Employees employees);
+//	ResponseEntity<?> login(Employees employees);
 
 	ResponseEntity<?> register(Employees employees);
 }

@@ -41,21 +41,21 @@ public class CourseController {
     }
 
     @PostMapping("/add")
-	@PreAuthorize("hasAuthority('Associate')")
+	@PreAuthorize("hasRole('Associate')")
 
     public ResponseEntity<?> addCourse(@RequestBody Courses course) {
         return courseService.addCourse(course);
     }
 
     @PutMapping("/update/{id}")		
-    @PreAuthorize("hasAuthority('Associate')")
+    @PreAuthorize("hasRole('Associate')")
 
     public ResponseEntity<?> updateCourse(@PathVariable String id, @RequestBody CourseDTO courseDTO) {
         return courseService.updateCourse(id, courseDTO);
     }
 
     @DeleteMapping("/delete/{id}")
-	@PreAuthorize("hasAuthority('Associate')")
+	@PreAuthorize("hasRole('Associate')")
 
     public ResponseEntity<?> deleteCourse(@PathVariable String id) {
         return courseService.deleteCourse(id);

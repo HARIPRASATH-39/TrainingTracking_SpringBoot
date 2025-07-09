@@ -27,13 +27,13 @@ public class EmployeesController {
 
 	
 	    @GetMapping("/getAll")
-		@PreAuthorize("hasAuthority('Associate')")
+		@PreAuthorize("hasRole('Associate')")
 	    public List<Employees> getAllEmployees() {
 	        return employeeService.getAllEmployee();
 	    }
 	    
 	    @GetMapping("/getById/{id}")
-		@PreAuthorize("hasAuthority('Associate')")
+		@PreAuthorize("hasRole('Associate')")
 	    public Employees getEmployeeById(@PathVariable Long id) {
 	    	
 	    	return employeeService.getEmployeeById(id);

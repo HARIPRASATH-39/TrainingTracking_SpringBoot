@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.cts.training.dto.LoginDTO;
 import com.cts.training.entity.Employees;
 import com.cts.training.repository.AuthRepository;
-import com.cts.training.security.JwtUtils;
 
 @Service
 
@@ -21,37 +20,37 @@ public class AuthServiceImpl implements AuthService {
 	@Autowired
 	PasswordEncoder passwordEncode;
 	
-	@Autowired
-	JwtUtils jwtUtils;
+//	@Autowired
+//	JwtUtils jwtUtils;
 	
 	
-	@Override
-	public ResponseEntity<?> login(Employees employees) {
-		
-		Employees dbPerson = authRepository.findByEmployeeEmail(employees.getEmployeeEmail());
-
-		String password=dbPerson.getEmployeePassword();
-		
-		boolean loginStatus=passwordEncode.matches(employees.getEmployeePassword(),password);
-		
-		if(loginStatus)
-		{
-			String token = jwtUtils.generateToken(dbPerson);
-	
-			
-			LoginDTO loginDTO=new LoginDTO(dbPerson.getEmployeeId(), dbPerson.getEmployeeName(), token,dbPerson.getEmployeeGrade());
-			
-			return new ResponseEntity<LoginDTO>(loginDTO,HttpStatus.OK);
-
-		}
-		else { 
-			
-		
-			return new ResponseEntity<String>("Invalid Credentials",HttpStatus.NOT_ACCEPTABLE);
-		}
-		
-		
-	}
+//	@Override
+//	public ResponseEntity<?> login(Employees employees) {
+//		
+//		Employees dbPerson = authRepository.findByEmployeeEmail(employees.getEmployeeEmail());
+//
+//		String password=dbPerson.getEmployeePassword();
+//		
+//		boolean loginStatus=passwordEncode.matches(employees.getEmployeePassword(),password);
+//		
+//		if(loginStatus)
+//		{
+////			String token = jwtUtils.generateToken(dbPerson);
+//	
+//			
+//			LoginDTO loginDTO=new LoginDTO(dbPerson.getEmployeeId(), dbPerson.getEmployeeName(), ,dbPerson.getEmployeeGrade());
+//			
+//			return new ResponseEntity<LoginDTO>(loginDTO,HttpStatus.OK);
+//
+//		}
+//		else { 
+//			
+//		
+//			return new ResponseEntity<String>("Invalid Credentials",HttpStatus.NOT_ACCEPTABLE);
+//		}
+//		
+//		
+//	}
 
 	@Override
 	public ResponseEntity<?> register(Employees employees) {

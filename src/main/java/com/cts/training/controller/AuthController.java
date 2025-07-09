@@ -24,11 +24,11 @@ public class AuthController {
 	@Autowired
 	AuthService authService;
 	
-	@PostMapping("/login")
-	public ResponseEntity<?> login(@RequestBody Employees employees) {
-		
-		return authService.login(employees);
-	}
+//	@PostMapping("/login")
+//	public ResponseEntity<?> login(@RequestBody Employees employees) {
+//		
+//		return authService.login(employees);
+//	}
 	
 	@PostMapping("/register")
 	public ResponseEntity<?> register(@RequestBody Employees employees) {
